@@ -1,0 +1,62 @@
+body{
+    font-family: helvetica;
+}
+
+header{
+    background-color: #330133;
+    color: #ffffff;
+    border-bottom: 2px white dotted;
+    display: inline-flex;
+    padding: 10px;
+}
+
+.buttons {
+    margin: 10px;
+    background-color: #ffffff;
+    color: #330133;
+}
+.buttons:hover{
+    background-color: #999999;
+    color: #800080;
+}
+.card {
+    height: 25%;
+    width: 25%;
+    margin: 20px;
+    break-after: avoid;
+}
+
+.card-text{
+    padding: 15px;
+    background-color: purple;
+    color: white;
+}
+
+.gifDiv{
+    display: inline-block;
+}
+
+#buttonDiv{
+    background-color: #330133;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#mainDiv{
+    background: lavender;
+    margin: 20px;
+    min-height: 500px;
+}
+
+#searchInput{
+    position: absolute;
+    right: 10px;
+}
+
+#searchBtn{
+    margin: 0px;
+}
+
+#title{
+    margin-left: 30px;
+}
