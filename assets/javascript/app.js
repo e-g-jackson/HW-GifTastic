@@ -10,10 +10,10 @@ var topicArray = [
     'King of the Hill',
     'Jackie Chan Adventures',
     'Batman: The Animated Series',
-    '',
-    '',
-    '',
-    '',
+    'South Park',
+    'Family Guy',
+    'Bojack Horseman',
+    'Big Mouth',
 ];
 
 var apiKey = "snU0o0zLY2AC7TRCVNRr64CBueCl72iX";
