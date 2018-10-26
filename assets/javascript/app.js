@@ -1,27 +1,30 @@
 var mainDiv = document.getElementById('mainDiv');
-var topicArray = ['Archer',
+var topicArray = [
+    'Archer',
     'The Venture Bros.',
-    'Family Guy',
+    'Rick and Morty',
+    'The Simpsons',
+    'Futurama',
     'The Regular Show',
     'Adventure Time',
-    'Jackie Chan Adventures',
-    'Futurama',
-    'Batman: The Animated Series',
-    'The Simpsons',
     'King of the Hill',
+    'Jackie Chan Adventures',
+    'Batman: The Animated Series',
+    '',
+    '',
+    '',
+    '',
 ];
 
 var apiKey = "snU0o0zLY2AC7TRCVNRr64CBueCl72iX";
 
-// function renderButtons(){
-    for (var i = 0; i < topicArray.length; i++) {
-        var button = document.createElement('button');
-        $(button).attr('id', topicArray[i]);
-        $(button).attr('class', 'buttons btn btn-large');
-        $(button).html(topicArray[i]);
-        $(button).appendTo(buttonDiv);
-    };
-// };
+for (var i = 0; i < topicArray.length; i++) {
+    var button = document.createElement('button');
+    $(button).attr('id', topicArray[i]);
+    $(button).attr('class', 'buttons btn btn-large');
+    $(button).html(topicArray[i]);
+    $(button).appendTo(buttonDiv);
+};
 
 var searchBtn = $('#searchBtn')
     $(searchBtn).on('click', function(event){
@@ -41,7 +44,23 @@ var searchBtn = $('#searchBtn')
             };
             renderButtons();
     });
+$(document).on('click', 'img', function(){
+    console.log('gif clicked')
+    var source = $(this).attr('src');
+    var static = $(this).attr('static');
+    var moving = $(this).attr('moving');
+    var status = $(this).attr('status');
+    if( status === 'static' ){
+        $(this).attr('src', moving)
+        $(this).attr('status', 'moving')
+    }
+    else if(status === 'moving'){
+        $(this).attr('src', static);
+        $(this).attr('status', 'static')
+    }
+    else{ alert('???')}
 
+})
 $(document).on('click', 'button', function(){
     console.log('This Button Works!')
     
@@ -57,11 +76,15 @@ $(document).on('click', 'button', function(){
             var bigDiv = document.createElement('div');
                 $(bigDiv).attr('class', 'gifDiv card');
             var imgSrc = results[i].images.fixed_height.url;
+            var imgStat = results[i].images.fixed_height_still.url;
             var gifImg = document.createElement('img');
+                $(gifImg).attr('src', imgStat);
+                $(gifImg).attr('static', imgStat);
+                $(gifImg).attr('moving', imgSrc);
+                $(gifImg).attr('status', 'static');
                 $(gifImg).attr('id', 'gif');
-                $(gifImg).attr('src', imgSrc);
                 $(gifImg).attr('class', 'card-img-top');
-            var rating = document.createElement('div')
+            var rating = document.createElement('div');
                 $(rating).html('Rated: ' + results[i].rating);
                 $(rating).attr('class', 'card-text')
                 $(gifImg).appendTo(bigDiv);
@@ -70,5 +93,3 @@ $(document).on('click', 'button', function(){
         }
     })
 });
-
-// renderButtons();
